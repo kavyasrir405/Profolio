@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vm1-uh!qn97$juhpep_54y#ola%c7d+q99@-u2461%d792tvz*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','.vercel.app']
 CSRF_COOKIE_SECURE = True  # Set to True if your site uses HTTPS
 CSRF_COOKIE_SAMESITE = 'Strict'  # Adjust the value as needed
 
@@ -125,6 +125,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR , "media")
+STATIC_ROOT=os.path.join(BASE_DIR , "staticfiles_bulid",'static')
+
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
