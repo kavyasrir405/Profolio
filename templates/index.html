@@ -1,0 +1,111 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+  
+
+    <!-- <link rel="stylesheet" href="{% static 'css/log.css'%}"> -->
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="back">
+        <div class="notify">
+         
+            {%if messages%}
+            {%for message in messages %}
+            
+            <h4 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} &nbsp;&nbsp;<span class="close-button" onclick="closeMessage(this)"><img src="{% static 'images/c55.png'%}" alt="" width="17px"></span></h4>
+            
+            
+            {%endfor%}     
+            {%endif %}
+            </div>  
+    
+    <div class="container">
+    
+        <div class="image">
+
+            {% if user.profile.avatar %}
+    <img id="img" src="{{ user.profile.avatar.url }}" width="180px" height="180px" alt="">
+{% else %}
+    <!-- Provide a default image or message for users with no avatar -->
+    <img id="img" src="{% static 'images/c55.png'%}" width="180px" height="180px" alt="Default Avatar">
+{% endif %}
+            
+            <br><br><br><br><br>
+            <form method="POST" action="{% url 'home' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                  
+                    <label class="choose">
+                        Choose Image
+                        <input type="file" name="avatar" id="{{ form.avatar.id_for_label }}" accept="image/*">
+                    </label>
+               
+                
+                <button class="btn btn2" type="submit">Upload</button>
+            </div>
+            </form>
+        </div>
+
+        
+<div class="profile">
+
+    <div class="userlogout">
+        <form action="logout" method="post">
+            {% csrf_token %}
+       <button  class="btn btn3"type="submit">Logout</button>
+    </form>
+</div>
+
+    
+    <div class="username">
+      
+        <p id="name">{{user.profile.name}}</p>
+        <p id="user">@{{user.profile.user}}</p>
+        <div class="ed" >
+
+          
+          </div>
+        
+    </div>
+    
+    
+    <div class="pro">
+        
+        <p><b>Email:</b> {{ user.profile.email}}</p>
+        <br>
+        <p  class="bio"> <b>Links:</b>{{user.profile.title}}</p>
+        <br>
+        <p class="bio"> <b>About me:</b>{{user.profile.bio}}</p>
+    </div>
+
+   <a href="{% url 'profile' %}"><span id="pen" >Edit</span></a> 
+    <a id="pen" href="{% url 'profile' %}"> <img src="{% static 'images/pen2.png'%}" alt="" width="20px"> </a>
+   
+
+</div>
+
+
+
+
+
+</div>
+</div>
+<script src="{% static 'dis.js' %}"></script>
+<script>
+    function closeMessage(button) {
+        var messageElement = button.parentElement;
+        messageElement.style.display = "none";
+    }
+</script>
+
+   </body>
+</html>

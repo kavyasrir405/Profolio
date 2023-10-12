@@ -1,0 +1,100 @@
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/home.css'%}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/profile.css'%}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/log.css'%}"> {% endcomment %}
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div class="notify">
+          
+        {%if messages%}
+        {%for message in messages %}
+        
+        <h4 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} &nbsp;&nbsp;<span><img src="{% static 'images/c1.png'%}" alt="" width="12px"></span></h4>
+        
+        {%endfor%}     
+        {%endif %}
+        </div>  
+       
+
+<div class="container">
+    <div class="profile">
+    <h1>Profile</h1>
+    
+    <form action="" method="post">
+      {% comment %} {{form.as_p}}  {% endcomment %}
+{% csrf_token %}
+
+<div class="both">
+
+
+<div class="right">
+    <div class="in ">
+    <label  for="user-name">Name</label>
+    <div class="inp">{{form.name}}</div>
+   
+</div>
+
+<div class="in ">
+    <label for="id_password1">Bio</label>
+                {% comment %} {{form.password1.errors}} {% endcomment %}
+
+                <div class="inp">{{form.bio}}</div>
+            </div>          
+
+</div> 
+
+<div class="left">
+<div class="in ">
+             
+    <label class"in" for="id_email">Email</label>
+    {% comment %} {{form.email.errors}} {% endcomment %}
+    <div class="inp">    {{form.email}}
+    </div>
+   
+</div>          
+<div class="in ">
+
+    <label for="id_email">Links</label>
+    {% comment %} {{form.email.errors}} {% endcomment %}
+    
+  
+    <div class="inp"> {{form.title}}
+    </div>
+
+   
+</div>  
+
+
+     </div>  
+   
+     
+   
+         
+</div>
+
+<div class="dav">
+    <a href="{% url 'logout' %}">  <button class="btn btn3" type="submit" >Update   </button></a>
+     </div>  
+                                                                
+            
+     </form>
+</div>
+</div>
+<script src="{% static 'disable_back_button.js' %}"></script>
+
+</body>
+<html>

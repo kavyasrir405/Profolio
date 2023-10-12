@@ -1,0 +1,103 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/log.css'%}"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'css/register.css'%}">
+
+
+    <title>Document</title>
+</head>
+
+<body>
+    
+  
+<div class="container">
+   
+    <div class="profile">
+        <div class="notify">
+          
+            {%if messages%}
+            {%for message in messages %}
+            
+            <h4 {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} &nbsp;&nbsp;<span class="close-button" onclick="closeMessage(this)"><img class="lin" src="{% static 'images/c55.png'%}" alt="" width="18px"></span></h4>
+            {%endfor%}     
+            {%endif %}
+            </div>  
+        
+<div class="logg">
+    <h1>Sign up </h1>
+    <form action="register" method="post">
+      {% comment %} {{form.as_p}}  {% endcomment %}
+{% csrf_token %}
+
+
+
+
+            <div class="di">
+                <label for="id_username">Username</label>
+               
+
+                {{form.username}}
+               <p class="err">{{form.username.errors}}</p> 
+            </div>
+            
+            <div class="di">
+             
+                <label for="id_email">Email Id </label>
+                {{form.email}}
+                <p>{{form.email.errors}}</p>
+
+                
+
+                
+            </div>
+            
+            <div class="di">
+             
+                <label for="id_password1">Password</label>
+                {{form.password1}}
+                {{form.password1.errors}}
+
+               
+
+            </div>
+
+            <div class="di">
+             
+            <label for="id_password2">Confirm Password</label>
+            {{form.password2}}
+            {{form.password2.errors}}
+
+           
+
+        </div>
+        
+
+<div class="dav">
+         <button class="btn btn3" type="submit" >Sign up </button>
+        </div>  
+
+        
+    
+    </form>
+    <div class="lon" >
+        <a href="{%url 'login' %}"> <button class="btn btn3">Login</button></a>
+    </div>
+
+</div>
+</div>
+</div>
+<script src="{% static 'disable_back_button.js' %}"></script>
+<script>
+    function closeMessage(button) {
+        var messageElement = button.parentElement;
+        messageElement.style.display = "none";
+    }
+</script>
+</body>
+<html>

@@ -1,0 +1,100 @@
+h1{
+    position: relative;
+    left: 450px;
+}
+.right{
+    /* border: 3px solid; */
+    display: flex;
+    flex-direction: column;
+    
+
+    
+    justify-content: space-between;
+height: 300px;
+}
+form{
+    font-family: 'Borel', cursive;
+
+}
+.btn3{
+    position: relative;
+    right: 10px;
+    padding: 5px;
+    font-size: 17px;
+}
+.btn{
+    color: aliceblue;
+    
+    
+    border: 3px solid rgb(85, 33, 87);
+    background-color: rgb(85, 33, 87);
+   
+    border-radius: 10px;
+    position: relative;
+   
+    transition: all 1s;
+    overflow: hidden;
+z-index: 9999;
+}
+.btn:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+height: 100%;
+width: 100%;
+background-color: white;
+z-index: -1;
+transform: translate(-100%);
+transition: all 1s;
+
+
+}
+.btn:hover:before{
+    transform: translateX(0);
+}
+.btn:hover{
+    color: #552157;
+}
+.both{
+    /* border: 3px solid; */
+    display: flex;
+    position: relative;
+    left: 160px;
+    top: 50px;
+    
+}
+.left{
+   
+    /* border: 3px solid; */
+    display: flex;
+    flex-direction: column;
+   
+    
+    justify-content: space-between;
+height: 300px;
+}
+label{
+    font-size: 25px;
+   
+}
+.in{
+    display: flex;
+   
+    flex-direction: column;
+}
+
+.dav{
+    position: relative;
+    left: 480px;
+    top: 100px;
+}
+
+.inp{
+    width: 400px;
+
+   
+   
+    position: relative; 
+    top: 5px;
+}

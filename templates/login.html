@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/log.css'%}">
+   
+
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="logcontainer">
+
+
+        <div class="slid">
+             <h1 class="head">Profolio</h1>
+            <div class="mpic" >
+               
+                <img id="i1" src="{% static 'images/wee1.jpg'%}" alt="jjjj" width="300px">
+            <img id="i2" src="{% static 'images/pur.png'%}" alt="Your Image" width="200px" height="200px">
+        </div>
+           
+        </div>
+ 
+ <button class="info" onclick="showPopup()">More info <span><img class="infoimg"src="{% static 'images/in1.png'%}" alt="" width="20px" height="20px"></span></button>
+       
+<div class="withnotfy">
+    
+    <div class="notify">
+          
+        {%if messages%}
+        {%for message in messages %}
+        
+        <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }} &nbsp;&nbsp;<span class="close-button" onclick="closeMessage(this)"><img class="cl" src="{% static 'images/c55.png'%}" alt="" width="20px"></span></p> 
+        
+        {%endfor%}     
+        {%endif %}
+        </div>  
+<div class="logg">
+
+    
+    <form action="/login" method="post">
+{% csrf_token %}
+
+            <div class="di">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" class="da" placeholder="Enter your username">
+            </div>
+
+            <div class="di">
+             
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" class="da" placeholder="Enter your password" >
+        </div>
+
+         <button class="btn"     >Login </button>
+        
+        
+
+    </form>
+    <div class="new">
+        <h4>New profile?</h5>
+      <a href="{%url 'register' %}" ><span> Create new profile</span> </a>  
+    </div>
+</div>
+
+
+</div>
+</div>
+
+<div class="popup" id="popup">
+    <h2>Welcome to Profolio! &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <span class="close-button" onclick="closePopup()"><img class="cl" src="{% static 'images/c55.png'%}" alt="" width="20px"></span></h2>
+<br>
+    <p>If you're a new user, You can create a new profile to get started on your creative journey.</p>
+    <br>
+    <p>For our existing users, welcome back! Simply login to access your profile where you can update and fine-tune your portfolio.</p>
+    <br>
+    <p>In the near future, you'll be able to explore other profiles and connect with fellow creatives. You'll have the option to follow your favorite profiles.</p>
+    <br>
+    <p>"Happy profiling!"</p>
+    
+</div>
+<script>
+    function closeMessage(button) {
+        var messageElement = button.parentElement;
+        messageElement.style.display = "none";
+    }
+
+      
+
+       function showPopup() {
+            document.getElementById('popup').style.display = 'block';
+        } 
+
+    // Function to close the pop-up message
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+
+    // Show the pop-up message when the page loads
+    
+    
+    {% comment %} window.onload = showPopup; {% endcomment %}
+ 
+</script> 
+</body>
+</html>
