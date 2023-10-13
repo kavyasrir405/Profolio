@@ -8,5 +8,6 @@ If you're a new user, You can create a new profile to get started on your creati
 
 "Happy profiling!"
 
-<img width="500" alt="Screenshot 2023-10-13 163325" src="https://github.com/kavyasrir405/profolio/assets/102276103/cbbf9282-c24a-40b4-b2e1-93fe24f74d36">
+<img width="500" alt="Screenshot 2023-10-13 163325" src="https://github.com/kavyasrir405/profolio/assets/102276103/cbbf9282-c24a-40b4-b2e1-93fe24f74d36"><img width="500" alt="Screenshot 2023-10-13 163341" src="https://github.com/kavyasrir405/profolio/assets/102276103/0303df0c-5a64-4220-b9f0-8ddb3cc7ac7b">
+
 
