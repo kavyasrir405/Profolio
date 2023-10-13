@@ -1,4 +1,4 @@
-![front pic](https://github.com/kavyasrir405/profolio/assets/102276103/ed71efa6-f439-424d-bfa9-1092c4e5a016)# Profolio
+
 Welcome to Profolio!
 Profolio is a simple platform for users to create and manage their creative portfolios.
 
